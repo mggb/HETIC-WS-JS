@@ -15,7 +15,30 @@
     <img src="https://media1.tenor.com/images/e18fbcad09fb657468207470d08cfa85/tenor.gif" alt="">
     
     <script>
-       
+               var margin = 0;
+        var img = document.querySelector('img');
+        var rotate = 0;
+
+        window.addEventListener('keyup', function(event) {
+            console.log(event.which);
+            
+            if (event.which === 39 ) {
+                if (rotate == 0) {
+                    img.style.transform = "rotateY(180deg)";
+                    rotate = 1;
+                }
+                margin = margin + 1;
+                img.style.marginLeft = margin + '%';
+            }
+            if (event.which === 37 ) {
+                if (rotate === 1) {
+                    img.style.transform = "rotateY(0deg)";
+                    rotate = 0;
+                }
+                margin = margin - 1;
+                img.style.marginLeft = margin + '%';
+            }
+        });
     </script>
 
 </body>
