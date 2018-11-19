@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    #loader {
+      height: 1px;
+      background-color: blue;
+    }
+  </style>
+  
+  <div id="loader"></div>
+  <p id="loader-width"></p>
+
+  <script>
+    var loader = document.getElementById('loader'),
+        loader_width = document.getElementById('loader-width'),
+        width = 0,
+        interval = 80,
+        load = setInterval(loading, interval);
+
+    function loading() {
+      if (width < 100) {
+        width++;
+      } else {
+        clearInterval(load);
+      }
+      loader.style.width = width + '%';
+      loader_width.innerHTML = 'je suis à ' + width + '%';
+    }
+    window.addEventListener('load', function () {
+      loading();
+    });
+  </script>
+</body>
+</html>
